@@ -1,0 +1,266 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <script>
+    function cambiar_pj(){
+      if (document.getElementById('nombre').value == "Gregor"){
+      document.getElementById('nombre').value = 'Mialee';
+      document.getElementById('genero').value = 'Femenino';
+      document.getElementById('raza').value = 'Elfo';
+      document.getElementById('clase').value = 'Druida';
+      }
+      else if (document.getElementById('nombre').value == "Mialee"){
+        document.getElementById('nombre').value = 'Laucian';
+        document.getElementById('genero').value = 'Masculino';
+        document.getElementById('raza').value = 'Gnomo';
+        document.getElementById('clase').value = 'Mago';
+      }
+      else {
+        document.getElementById('nombre').value = 'Gregor';
+        document.getElementById('genero').value = 'Masculino';
+        document.getElementById('raza').value = 'Humano';
+        document.getElementById('clase').value = 'Guerrero';
+      }
+      }
+
+    function guardar_pj(){
+      if(document.getElementById('nombre').value == "" || document.getElementById('genero').value == "" || document.getElementById('raza').value == "" || document.getElementById('clase').value == ""){
+        alert("Todos los campos deben estar llenos!.");
+      }else{
+      document.getElementById('cambiar').disabled = true;
+      document.getElementById('nombre').disabled = true;
+      document.getElementById('genero').disabled = true;
+      document.getElementById('raza').disabled = true;
+      document.getElementById('clase').disabled = true;
+      }
+    }
+
+    function ayuda_raza(){
+      alert("Ventaja del humano: obtiene una dote adicional. Ventaja del Elfo: +2 Destreza, -2 Constitución. Ventaja del Gnomo: +2 Constitución, -2 Fuerza.");
+    }
+
+    function ayuda_clase(){
+      alert("Guerrero: Lucha con armas cuerpo a cuerpo. Su caracteristica mas importante es FUERZA. Druida: Usa la fuerza de la naturaleza. Su caracteristica mas importante es SABIDURIA. Mago: Lanza hechizos para combatir. Su caracteristica mas importante es INTELIGENCIA.");
+    }
+
+    function caracteristicas(){
+      var fue = Math.floor((Math.random() * 16) + 3);
+      var des = Math.floor((Math.random() * 16) + 3);
+      var con = Math.floor((Math.random() * 16) + 3);
+      var int = Math.floor((Math.random() * 16) + 3);
+      var sab = Math.floor((Math.random() * 16) + 3);
+      var car = Math.floor((Math.random() * 16) + 3);
+      if(document.getElementById('raza').value == "Elfo"){
+        des = des + 2;
+        con = con - 2;
+      }
+      else if(document.getElementById('raza').value == "Gnomo"){
+        des = fue - 2;
+        con = con + 2;
+      }
+
+if (fue<10){
+  var modfue = Math.floor(((fue - 10)/2));
+}else if (fue == 10) {
+  var modfue = 0;
+}else {
+  var modfue = parseInt((fue - 10)/2);
+}
+    document.getElementById('fue').value = fue;
+    document.getElementById('modfue').value = modfue;
+
+if (con<10){
+  var modcon = Math.floor(((con - 10)/2));
+}else if (con == 10) {
+  var modcon = 0;
+}else {
+  var modcon = parseInt((con - 10)/2);
+}
+    document.getElementById('con').value = con;
+    document.getElementById('modcon').value = modcon;
+
+if (des<10){
+  var moddes = Math.floor(((des - 10)/2));
+}else if (des == 10) {
+  var moddes = 0;
+}else {
+  var moddes = parseInt((des - 10)/2);
+}
+    document.getElementById('des').value = des;
+    document.getElementById('moddes').value = moddes;
+
+if (int<10){
+  var modint = Math.floor(((int - 10)/2));
+}else if (int == 10) {
+  var modint = 0;
+}else {
+  var modint = parseInt((int - 10)/2);
+}
+    document.getElementById('int').value = int;
+    document.getElementById('modint').value = modint;
+
+if (sab<10){
+  var modsab = Math.floor(((sab - 10)/2));
+}else if (sab == 10) {
+  var modsab = 0;
+}else {
+  var modsab = parseInt((sab - 10)/2);
+}
+    document.getElementById('sab').value = sab;
+    document.getElementById('modsab').value = modsab;
+
+if (car<10){
+  var modcar = Math.floor(((car - 10)/2));
+}else if (car == 10) {
+  var modcar = 0;
+}else {
+  var modcar = parseInt((car - 10)/2);
+}
+    document.getElementById('car').value = car;
+    document.getElementById('modcar').value = modcar;
+
+}
+
+function savepoints(){
+  document.getElementById('lanzador').disabled = true;
+  document.getElementById('fue').disabled = true;
+  document.getElementById('modfue').disabled = true;
+  document.getElementById('des').disabled = true;
+  document.getElementById('moddes').disabled = true;
+  document.getElementById('con').disabled = true;
+  document.getElementById('modcon').disabled = true;
+  document.getElementById('int').disabled = true;
+  document.getElementById('modint').disabled = true;
+  document.getElementById('sab').disabled = true;
+  document.getElementById('modsab').disabled = true;
+  document.getElementById('car').disabled = true;
+  document.getElementById('modcar').disabled = true;
+}
+
+</script>
+</head>
+<body>
+Hoja de personaje:
+<table>
+  <tr>
+    <th>
+      Nombre:
+    </th>
+    <th>
+      Genero:
+    </th>
+    <th>
+      Raza:
+    </th>
+    <th>
+      Clase:
+    </th>
+  </tr>
+  <tr>
+    <th>
+      <input type="text" id="nombre">
+    </th>
+    <th>
+      <input type="text" id="genero">
+    </th>
+    <th>
+      <input type="text" id="raza"><input type="button" value="(?)" onclick="ayuda_raza()">
+    </th>
+    <th>
+      <input type="text" id="clase"><input type="button" value="(?)" onclick="ayuda_clase()">
+    </th>
+  </tr>
+</table>
+<input type="button" id="cambiar" value="Buscar" onclick="cambiar_pj()">
+<input type="button" id="guardarpj" value="Elegir" onclick="guardar_pj()">
+</br>
+</br>
+<input type="button" id="lanzador" value="Lanzar Dados" onclick="caracteristicas()">
+<input type="button" value="Guardar Caracteristicas" onclick="savepoints()">
+</br>
+<table>
+  <tr>
+    <th>
+      Característica
+    </th>
+    <th>
+      Puntuación
+    </th>
+    <th>
+      Modificador
+    </th>
+  </tr>
+  <tr>
+    <th>
+      Fuerza
+    </th>
+    <th>
+      <input type="text" id="fue">
+    </th>
+    <th>
+      <input type="text" id="modfue">
+    </th>
+  </tr>
+  <tr>
+    <th>
+      Destreza
+    </th>
+    <th>
+      <input type="text" id="des">
+    </th>
+    <th>
+      <input type="text" id="moddes">
+    </th>
+  </tr>
+  <tr>
+    <th>
+      Constitución
+    </th>
+    <th>
+      <input type="text" id="con">
+    </th>
+    <th>
+      <input type="text" id="modcon">
+    </th>
+  </tr>
+  <tr>
+    <th>
+      Inteligencia.
+    </th>
+    <th>
+      <input type="text" id="int">
+    </th>
+    <th>
+      <input type="text" id="modint">
+    </th>
+  </tr>
+  <tr>
+    <th>
+      Sabiduria.
+    </th>
+    <th>
+      <input type="text" id="sab">
+    </th>
+    <th>
+      <input type="text" id="modsab">
+    </th>
+  </tr>
+  <tr>
+    <th>
+      Carisma
+    </th>
+    <th>
+      <input type="text" id="car">
+    </th>
+    <th>
+      <input type="text" id="modcar">
+    </th>
+  </tr>
+</table>
+</br>
+<input type="text" id="vida">
+<input type="text" id="CA">
+<input type="text" id="ataque">
+<input type="text" id="daño">
+</body>
+</html>
