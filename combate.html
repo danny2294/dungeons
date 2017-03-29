@@ -2,7 +2,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <script>
-<<<<<<< HEAD
+  
     function cambiar_pj(){
       if (document.getElementById('nombre').value == "Gregor"){
       document.getElementById('nombre').value = 'Mialee';
@@ -44,14 +44,13 @@
       alert("Guerrero: Lucha con armas cuerpo a cuerpo. Su caracteristica mas importante es FUERZA. Druida: Usa la fuerza de la naturaleza. Su caracteristica mas importante es SABIDURIA. Mago: Lanza hechizos para combatir. Su caracteristica mas importante es INTELIGENCIA.");
     }
 
-=======
     function crear_personaje(){
       document.getElementById('nombre').value = "Zadorat"
       document.getElementById('genero').value = 'Masculino'
       document.getElementById('raza').value = 'Humano'
       document.getElementById('clase').value = 'Guerrero'
     }
->>>>>>> 8a887fad335947d69f76db8df7ddcd14ef44c8f6
+
     function caracteristicas(){
       var fue = Math.floor((Math.random() * 16) + 3);
       var des = Math.floor((Math.random() * 16) + 3);
@@ -59,7 +58,7 @@
       var int = Math.floor((Math.random() * 16) + 3);
       var sab = Math.floor((Math.random() * 16) + 3);
       var car = Math.floor((Math.random() * 16) + 3);
-<<<<<<< HEAD
+
       if(document.getElementById('raza').value == "Elfo"){
         des = des + 2;
         con = con - 2;
@@ -68,8 +67,6 @@
         des = fue - 2;
         con = con + 2;
       }
-=======
->>>>>>> 8a887fad335947d69f76db8df7ddcd14ef44c8f6
 
 if (fue<10){
   var modfue = Math.floor(((fue - 10)/2));
@@ -132,7 +129,6 @@ if (car<10){
     document.getElementById('modcar').value = modcar;
 
 }
-<<<<<<< HEAD
 
 function savepoints(){
   document.getElementById('lanzador').disabled = true;
@@ -155,13 +151,11 @@ function savepoints(){
 <body>
 Hoja de personaje:
 <table>
-=======
   </script>
 </head>
 <body>
 Hoja de personaje:
 <table style="border: 1px;">
->>>>>>> 8a887fad335947d69f76db8df7ddcd14ef44c8f6
   <tr>
     <th>
       Nombre:
@@ -184,7 +178,6 @@ Hoja de personaje:
       <input type="text" id="genero">
     </th>
     <th>
-<<<<<<< HEAD
       <input type="text" id="raza"><input type="button" value="(?)" onclick="ayuda_raza()">
     </th>
     <th>
@@ -200,7 +193,6 @@ Hoja de personaje:
 <input type="button" value="Guardar Caracteristicas" onclick="savepoints()">
 </br>
 <table>
-=======
       <input type="text" id="raza">
     </th>
     <th>
@@ -214,7 +206,6 @@ Hoja de personaje:
 <input type="button" value="Lanzar Dados" onclick="caracteristicas()">
 </br>
 <table style="border: 1px;">
->>>>>>> 8a887fad335947d69f76db8df7ddcd14ef44c8f6
   <tr>
     <th>
       Característica
@@ -293,11 +284,7 @@ Hoja de personaje:
     </th>
   </tr>
 </table>
-<<<<<<< HEAD
 </br>
-=======
-
->>>>>>> 8a887fad335947d69f76db8df7ddcd14ef44c8f6
 <input type="text" id="vida">
 <input type="text" id="CA">
 <input type="text" id="ataque">
