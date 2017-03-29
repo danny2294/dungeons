@@ -2,7 +2,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <script>
-  
+
     function cambiar_pj(){
       if (document.getElementById('nombre').value == "Gregor"){
       document.getElementById('nombre').value = 'Mialee';
@@ -131,6 +131,9 @@ if (car<10){
 }
 
 function savepoints(){
+  if (document.getElementById('fue').value == "" || document.getElementById('des').value == ""){
+    alert("Debes lanzar los dados para guardar caracteristicas.");
+  }else {
   document.getElementById('lanzador').disabled = true;
   document.getElementById('fue').disabled = true;
   document.getElementById('modfue').disabled = true;
@@ -144,18 +147,22 @@ function savepoints(){
   document.getElementById('modsab').disabled = true;
   document.getElementById('car').disabled = true;
   document.getElementById('modcar').disabled = true;
+  }
+}
+
+function ayuda_punt(){
+  alert("Cada puntuación va de 3 (peor) hasta el 18 (mejor), siendo el 10 la puntuación de equilibrio.");
+}
+
+function ayuda_mod(){
+  alert("Cada 2 puntos sobre o bajo 10, obtienes un modificador bueno o malo para las pruebas que se definan por esa caracteristica. Ej: Si intentas atacar con una espada y tu fuerza es de 6, obtienes un modificador (-2) a tu ataque y daño.");
 }
 
 </script>
 </head>
 <body>
-Hoja de personaje:
+<h1>Hoja de personaje:</h1>
 <table>
-  </script>
-</head>
-<body>
-Hoja de personaje:
-<table style="border: 1px;">
   <tr>
     <th>
       Nombre:
@@ -193,28 +200,18 @@ Hoja de personaje:
 <input type="button" value="Guardar Caracteristicas" onclick="savepoints()">
 </br>
 <table>
-      <input type="text" id="raza">
-    </th>
-    <th>
-      <input type="text" id="clase">
-    </th>
-  </tr>
-</table>
-<input type="button" value="Crear" onclick="crear_personaje()">
-</br>
-</br>
-<input type="button" value="Lanzar Dados" onclick="caracteristicas()">
-</br>
-<table style="border: 1px;">
   <tr>
     <th>
       Característica
     </th>
     <th>
-      Puntuación
+      Puntuación <input type="button" value="(?)" onclick="ayuda_punt()">
     </th>
     <th>
-      Modificador
+      Modificador <input type="button" value="(?)" onclick="ayuda_mod()">
+    </th>
+    <th>
+      PG (Actuales / Totales)
     </th>
   </tr>
   <tr>
@@ -222,10 +219,13 @@ Hoja de personaje:
       Fuerza
     </th>
     <th>
-      <input type="text" id="fue">
+      <input type="number" id="fue">
     </th>
     <th>
-      <input type="text" id="modfue">
+      <input type="number" id="modfue">
+    </th>
+    <th>
+      <input type="number" id="pgact"> / <input type="number" id="pgtot"><input type="button" value="(?)" onclick="ayuda_pg()">
     </th>
   </tr>
   <tr>
@@ -238,6 +238,12 @@ Hoja de personaje:
     <th>
       <input type="text" id="moddes">
     </th>
+    <th>
+      CA
+    </th>
+    <th>
+      Ataque Base
+    </th>
   </tr>
   <tr>
     <th>
@@ -249,10 +255,16 @@ Hoja de personaje:
     <th>
       <input type="text" id="modcon">
     </th>
+    <th>
+      <input type="number" id="ca"><input type="button" value="(?)" onclick="ayuda_ca()">
+    </th>
+    <th>
+      <input type="number" id="ab"><input type="button" value="(?)" onclick="ayuda_ab()">
+    </th>
   </tr>
   <tr>
     <th>
-      Inteligencia.
+      Inteligencia
     </th>
     <th>
       <input type="text" id="int">
@@ -263,7 +275,7 @@ Hoja de personaje:
   </tr>
   <tr>
     <th>
-      Sabiduria.
+      Sabiduria
     </th>
     <th>
       <input type="text" id="sab">
@@ -284,10 +296,5 @@ Hoja de personaje:
     </th>
   </tr>
 </table>
-</br>
-<input type="text" id="vida">
-<input type="text" id="CA">
-<input type="text" id="ataque">
-<input type="text" id="daño">
 </body>
 </html>
