@@ -88,6 +88,23 @@ if (con<10){
     document.getElementById('con').value = con;
     document.getElementById('modcon').value = modcon;
 
+// ASIGNACION PG X CLASE
+if (document.getElementById('clase').value == "Guerrero")
+{
+  document.getElementById('pgtot').value = 10 + modcon;
+  document.getElementById('pgact').value = 10 + modcon;
+}
+if (document.getElementById('clase').value == "Druida")
+{
+  document.getElementById('pgtot').value = 8 + modcon;
+  document.getElementById('pgact').value = 8 + modcon;
+}
+if (document.getElementById('clase').value == "Mago")
+{
+  document.getElementById('pgtot').value = 4 + modcon;
+  document.getElementById('pgact').value = 4 + modcon;
+}
+
 if (des<10){
   var moddes = Math.floor(((des - 10)/2));
 }else if (des == 10) {
@@ -161,7 +178,7 @@ function ayuda_mod(){
 </script>
 </head>
 <body>
-<h1>Hoja de personaje:</h1>
+<h3>Hoja de personaje:</h3>
 <table>
   <tr>
     <th>
